@@ -1,0 +1,33 @@
+:root {
+    --bg-light: #FFFFFF;
+    --font-light: #000000;
+    --headline-light: rgba(17, 14, 71, 1);
+    --bg-dark: #000000;
+    --font-dark: #F0EFFA;
+    --button: #DBE3FF;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    font-style: italic;
+    color: grey;
+}
+
+@font-face {
+    font-family: 'Mulish';
+    src: url(/fonts/Mulish-VariableFont_wght.ttf)
+}
+
+@font-face {
+    font-family: 'Merriweather-Black';
+    src: url(/fonts/Merriweather-Black.ttf);
+}
+
