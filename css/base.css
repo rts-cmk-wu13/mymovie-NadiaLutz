@@ -1,10 +1,29 @@
 :root {
-    --bg-light: #FFFFFF;
+
     --font-light: #000000;
-    --headline-light: rgba(17, 14, 71, 1);
+    --bg-light: #ffffff;
+    --slider-background-light: #ccc;
+    --slider-circle-light: #fff;
+
+
+    --font-dark: #ffffff;
     --bg-dark: #000000;
-    --font-dark: #F0EFFA;
-    --button: #DBE3FF;
+    --slider-background-dark: #ffffff;
+    --slider-circle-dark: #000000;
+}
+
+[data-dark="true"] {
+    color-scheme: dark;
+}
+
+[data-dark="false"] {
+    color-scheme: light;
+}
+
+
+html {
+    color: light-dark(var(--font-light), var(--font-dark));
+    background: light-dark(var(--bg-light), var(--bg-dark));
 }
 
 
