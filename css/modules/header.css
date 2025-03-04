@@ -9,3 +9,9 @@ header {
 header .switch {
     margin-inline-end: 2rem;
 }
+
+.movielist__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

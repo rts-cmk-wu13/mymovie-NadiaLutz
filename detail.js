@@ -38,15 +38,18 @@ function fetchMovieDetails(movieId) {
                <img src="img/star.png" class="star__img"> 
                <p>${movie.vote_average}/10</p>
           </div>
-          <p>${movie.genres.map(genre => genre.name).join(', ')}</p>
+          <ul class="movie__genres">
+          <li class="genre__items">${movie.genres.map(genre => genre.name).join(', ')}</li>
+          </ul>
           <p>Description: ${movie.overview}</p>
-          <p class="info__item">Length: ${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60} minutes</p>
+          <p class="info__item">Length: ${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60} min</p>
           <p class="info__item">Language: ${movie.original_language}</p>
         </div>
 
         <section class="cast__section">
             <div class="cast__section-top">
-                <h2>Cast</h2><button>See more</button>
+                <h2>Cast</h2>
+                <button id="seemoreBtn" class"seemore__btn>See more</button>
             </div>
             <ul class="cast__item-container">
                 ${credits.cast && credits.cast.length ? credits.cast.map(actor => {

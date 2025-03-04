@@ -1,4 +1,4 @@
-let apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OTZjNWNkNjcwYWJlZDUzMDVmMDgyOTg2ZTJlMjQ4ZSIsIm5iZiI6MTc0MDk4Njc5MS4xODMsInN1YiI6IjY3YzU1OWE3ODgxYzAxM2VkZTdhNmZiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5GC0q7C8tlc2UOU8SLns_FNXlBD6J1ZwLRs4DDdcFhU';
+let apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OTZjNWNkNjcwYWJlZDUzMDVmMDgyOTg2ZTJlMjQ4ZSIsIm5iZiI6MTc0MDk4Njc5MS4xODMsInN1YiI6IjY3YzU1OWE3ODgxYzAxM2VkZTdhNmZiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5GC0q7C8tlc2UOU8SLns_FNXlBD6J1ZwLRs4DDdcFhU';  // Use your actual API key here (replace 'your_api_key' with the valid API key)
 let baseUrl = 'https://image.tmdb.org/t/p/w500';
 let options = {
   method: 'GET',
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   movieListContainer.innerHTML = `
     <div class="movielist__top">
       <h2>Now Showing</h2>
-      <button id="seeMore">See more</button>
+      <button id="seeMore" class="seemore__btn">See more</button>
     </div>
   `;
   let movieList = document.createElement("ul");
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   popularListContainer.innerHTML = `
     <div class="popularlist__top">
       <h2>Popular</h2>
-      <button id="seeMore">See more</button>
+      <button id="seemoreBtn" class="seemore__btn">See more</button>
     </div>
   `;
   let popularList = document.createElement("ul");
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function fetchMovielist(page) {
     let url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}&api_key=${apiKey}`;
-    fetch(url, options)
+    fetch(url)
       .then(res => res.json())
       .then(json => {
         if (json.results && json.results.length > 0) {
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <h3>${movie.title}</h3>
               <div>
                 <img src="img/star.png" class="star__img"> 
-                <p>${movie.vote_average}/10</p>
+                <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
               </div>
             `;
             movieList.appendChild(movieListItem);
@@ -81,41 +81,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      let footer = document.createElement("footer")
-      footer.innerHTML = `
+    let footer = document.createElement("footer");
+    footer.innerHTML = `
       <ul>
         <li><a href="index.html"><img src="img/bookmark.png"></a></li>
         <li><a href="#"><img src="img/bookmarkcopy.png"></a></li>
         <li><a href="#"><img src="img/bookmarksave.png"></a></li>
-        </ul>
-        `;
-        document.body.appendChild(footer)
+      </ul>
+    `;
+    document.body.appendChild(footer);
   }
 
   function fetchPopularlist() {
     let url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`;
-    fetch(url, options)
+    fetch(url)
       .then(res => res.json())
       .then(json => {
         if (json.results && json.results.length > 0) {
           json.results.forEach(movie => {
-            let popularItem = document.createElement('li');
-            popularItem.className = 'popular__item';
-            let posterPath = movie.poster_path;
-            let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';
-            let genres = movie.genre_ids.map(genreId => genreMapping[genreId] || 'Unknown Genre').join(', ');
-            popularItem.innerHTML = `
-              <a href="detail.html?id=${movie.id}"> <img src="${imageUrl}" alt="${movie.title}" loading="lazy"></a>
-              <h3>${movie.title}</h3>
-              <div>
-                <img src="img/star.png" class="star__img"> 
-                <p>${movie.vote_average}/10</p>
-              </div>
-              <ul class="movie-genres">
-                <li>${genres}</li>
-              </ul>
-            `;
-            popularList.appendChild(popularItem);
+            fetch(`https://api.themoviedb.org/3/movie/${movie.id}?language=en-US&api_key=${apiKey}`)
+              .then(res => res.json())
+              .then(movieDetails => {
+                let popularItem = document.createElement('li');
+                popularItem.className = 'popular__item';
+                let posterPath = movie.poster_path;
+                let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';
+                let genres = movie.genre_ids.map(genreId => genreMapping[genreId] || 'Unknown Genre');
+
+                let runtime = movieDetails.runtime ? `${Math.floor(movieDetails.runtime / 60)}h ${movieDetails.runtime % 60} minutes` : 'Runtime not available';
+
+                popularItem.innerHTML = `
+                  <div class="popular__item-left">
+                    <a href="detail.html?id=${movie.id}">
+                      <img src="${imageUrl}" class="popular__img" alt="${movie.title}" loading="lazy">
+                    </a>
+                  </div>
+                  <div class="popular__item-right">
+                    <h3>${movie.title}</h3>
+                    <div>
+                      <img src="img/star.png" class="star__img"> 
+                      <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
+                    </div>
+                    <ul class="movie__genres">
+                      ${genres.map(genre => `<li class="genre__items">${genre}</li>`).join('')}
+                    </ul>
+                    <span><img src="img/clock.png">${runtime}</span>
+                  </div>
+                `;
+                popularList.appendChild(popularItem);
+              })
           });
         }
       });

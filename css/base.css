@@ -10,6 +10,11 @@
     --bg-dark: #000000;
     --slider-background-dark: #ffffff;
     --slider-circle-dark: #000000;
+
+    --primary-grey: rgba(170, 169, 177, 1);
+    --primary-blue: rgba(17, 14, 71, 1);
+    --primary-li-bg:rgba(219, 227, 255, 1);
+    --primary-li-text:rgba(136, 164, 232, 1);
 }
 
 [data-dark="true"] {
@@ -47,7 +52,38 @@ img {
 }
 
 @font-face {
+    font-family: 'Mulish-Bold';
+    src: url(/fonts/Mulish-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
     font-family: 'Merriweather-Black';
     src: url(/fonts/Merriweather-Black.ttf);
 }
 
+
+h1, h2 {
+    font-family: 'Merriweather-Black', sans-serif;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-family: "Mulish-Regular";
+    color: var(--primary-grey);
+    letter-spacing: 0.025rem;
+}
+
+span {
+    font-family: 'Mulish-Regular', sans-serif;
+    font-size: 0.75rem;
+}
+
+ul {
+ list-style: none;
+}

@@ -1,3 +1,8 @@
+
+.movielist__top {
+    margin-block-end: 1.5rem;
+}
+
 .movielist {
     overflow: auto;
     white-space: nowrap;
@@ -7,8 +12,18 @@
 
 .movielist__item {
     display: inline-block;
-    width: 200px;
+    width: 10rem;
     margin-right: 1.5rem; 
+}
+
+.movielist div {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.movielist p {
+    color: var(--primary-grey);
 }
 
 .star__img {
