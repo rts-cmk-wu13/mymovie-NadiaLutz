@@ -31,7 +31,7 @@ function fetchMovieDetails(movieId) {
 
   
       detailSection.innerHTML = `
-        <div class="movie-details">
+        <div class="movie__details">
           <img src="${baseUrl}${movie.poster_path}" alt="${movie.title}" loading="lazy">
           <h2>${movie.title}</h2>
           <div>

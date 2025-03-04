@@ -16,33 +16,49 @@ let genreMapping = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  let headerElm = document.createElement("header");
+  headerElm.innerHTML = `
+    <h1>MyMovies</h1>
+    <label class="switch">
+        <input type="checkbox" name="switch" id="switch">
+        <span class="slider round"></span>
+    </label>
+  `;
+  document.body.appendChild(headerElm); 
+
   let currentOffset = 1;
+
+  let mainElm = document.createElement("main");
+  let movieList = document.createElement("section");
+  movieList.classList.add("movielist");
+  let popularList = document.createElement("section");
+  popularList.classList.add("popularlist");
+
+  mainElm.appendChild(movieList);
+  mainElm.appendChild(popularList);
+  document.body.appendChild(mainElm); 
 
   function fetchMovielist(page) {
     let url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}&api_key=${apiKey}`;
-
     fetch(url, options)
       .then(res => res.json())
       .then(json => {
         if (json.results && json.results.length > 0) {
-          let movieList = document.querySelector('.movielist');
-          if (!movieList) return;
-
           json.results.forEach(movie => {
             let movieItem = document.createElement('div');
             movieItem.className = 'movie__item';
-
             let posterPath = movie.poster_path;
             let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';
-
             movieItem.innerHTML = `
-              <a href="detail.html?id=${movie.id}"> <img src="${imageUrl}" alt="${movie.title}" loading="lazy"></a>
+              <a href="detail.html?id=${movie.id}">
+                <img src="${imageUrl}" alt="${movie.title}" loading="lazy">
+              </a>
               <h3>${movie.title}</h3>
               <div>
                 <img src="img/star.png" class="star__img"> 
                 <p>${movie.vote_average}/10</p>
               </div>
-            `;        
+            `;
             movieList.appendChild(movieItem);
           });
         }
@@ -51,22 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function fetchPopularlist() {
     let url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`;
-
     fetch(url, options)
       .then(res => res.json())
       .then(json => {
         if (json.results && json.results.length > 0) {
-          let popularList = document.querySelector('.popularlist');
-          if (!popularList) return;
-
           json.results.forEach(movie => {
             let popularItem = document.createElement('div');
             popularItem.className = 'popular__item';
-
             let posterPath = movie.poster_path;
             let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';
             let genres = movie.genre_ids.map(genreId => genreMapping[genreId] || 'Unknown Genre').join(', ');
-
             popularItem.innerHTML = `
               <a href="detail.html?id=${movie.id}"> <img src="${imageUrl}" alt="${movie.title}" loading="lazy"></a>
               <h3>${movie.title}</h3>
@@ -78,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>${genres}</li>
               </ul>
             `;
-            
             popularList.appendChild(popularItem);
           });
         }
@@ -96,18 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     rootMargin: '200px',
   });
 
-  let divElm = document.createElement("div");
-  divElm.id = "root";
-
-  divElm.innerHTML = `
-    <main>
-      <section class="movielist"></section>
-      <section class="popularlist"></section>  
-    </main>
-    <footer></footer>
-  `;
-  document.body.appendChild(divElm);
-
   fetchMovielist(currentOffset);
-  fetchPopularlist();  // Fetch the popular list on page load
+  fetchPopularlist();
 });
