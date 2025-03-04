@@ -24,19 +24,36 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="slider round"></span>
     </label>
   `;
-  document.body.appendChild(headerElm); 
+  document.body.appendChild(headerElm);
 
   let currentOffset = 1;
 
   let mainElm = document.createElement("main");
-  let movieList = document.createElement("section");
+  let movieListContainer = document.createElement("section");
+  movieListContainer.innerHTML = `
+    <div class="movielist__top">
+      <h2>Now Showing</h2>
+      <button id="seeMore">See more</button>
+    </div>
+  `;
+  let movieList = document.createElement("ul");
   movieList.classList.add("movielist");
-  let popularList = document.createElement("section");
-  popularList.classList.add("popularlist");
+  movieListContainer.appendChild(movieList);
 
-  mainElm.appendChild(movieList);
-  mainElm.appendChild(popularList);
-  document.body.appendChild(mainElm); 
+  let popularListContainer = document.createElement("section");
+  popularListContainer.innerHTML = `
+    <div class="popularlist__top">
+      <h2>Popular</h2>
+      <button id="seeMore">See more</button>
+    </div>
+  `;
+  let popularList = document.createElement("ul");
+  popularList.classList.add("popularlist");
+  popularListContainer.appendChild(popularList);
+
+  mainElm.appendChild(movieListContainer);
+  mainElm.appendChild(popularListContainer);
+  document.body.appendChild(mainElm);
 
   function fetchMovielist(page) {
     let url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}&api_key=${apiKey}`;
@@ -45,11 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(json => {
         if (json.results && json.results.length > 0) {
           json.results.forEach(movie => {
-            let movieItem = document.createElement('div');
-            movieItem.className = 'movie__item';
+            let movieListItem = document.createElement('li');
+            movieListItem.className = 'movielist__item';
             let posterPath = movie.poster_path;
             let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';
-            movieItem.innerHTML = `
+            movieListItem.innerHTML = `
               <a href="detail.html?id=${movie.id}">
                 <img src="${imageUrl}" alt="${movie.title}" loading="lazy">
               </a>
@@ -59,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>${movie.vote_average}/10</p>
               </div>
             `;
-            movieList.appendChild(movieItem);
+            movieList.appendChild(movieListItem);
           });
         }
       });
@@ -72,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(json => {
         if (json.results && json.results.length > 0) {
           json.results.forEach(movie => {
-            let popularItem = document.createElement('div');
+            let popularItem = document.createElement('li');
             popularItem.className = 'popular__item';
             let posterPath = movie.poster_path;
             let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';

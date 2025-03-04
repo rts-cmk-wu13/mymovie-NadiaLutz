@@ -1,0 +1,11 @@
+
+header {
+    display: flex;
+    justify-content: right;
+    gap: 6rem;
+    margin-block: 2rem;
+}
+
+header .switch {
+    margin-inline-end: 2rem;
+}

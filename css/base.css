@@ -38,6 +38,7 @@ img {
     height: auto;
     font-style: italic;
     color: grey;
+    border-radius: 0.5rem;
 }
 
 @font-face {
