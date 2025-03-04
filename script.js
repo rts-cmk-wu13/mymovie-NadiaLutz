@@ -80,6 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
       });
+
+      let footer = document.createElement("footer")
+      footer.innerHTML = `
+      <ul>
+        <li><a href="index.html"><img src="img/bookmark.png"></a></li>
+        <li><a href="#"><img src="img/bookmarkcopy.png"></a></li>
+        <li><a href="#"><img src="img/bookmarksave.png"></a></li>
+        </ul>
+        `;
+        document.body.appendChild(footer)
   }
 
   function fetchPopularlist() {
