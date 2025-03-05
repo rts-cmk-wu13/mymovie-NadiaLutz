@@ -1,9 +1,8 @@
-
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 3rem;
+    height: 1.55rem;
 }
 
 .switch input {
@@ -12,7 +11,6 @@
     height: 0;
 }
 
-
 .switch .slider {
     position: absolute;
     cursor: pointer;
@@ -20,61 +18,57 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: #ccc; 
-    border-radius: 34px;
+    background: rgba(170, 169, 177, 1); /* Light mode background */
     transition: 0.4s;
 }
-
 
 .switch .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #fff;
+    height: 1.3rem;
+    width: 1.3rem;
+    left: 3px;
+    bottom: 2px;
+    background-color: #ffffff; /* Light mode slider circle */
     border-radius: 50%;
     transition: 0.4s;
 }
 
-
-html[data-theme="dark"] .switch .slider {
-    background: #ff2626; 
+.switch .slider.round {
+    border-radius: 34px;
 }
 
-html[data-theme="dark"] .switch .slider:before {
-    background-color: #000; 
+.switch .slider.round:before {
+    border-radius: 50%;
 }
 
+/* Dark mode background and slider color */
+html[data-dark="true"] .switch .slider {
+    background: rgba(255, 255, 255, 1); /* Dark mode background */
+}
 
+html[data-dark="true"] .switch .slider:before {
+    background-color: rgba(0, 0, 0, 1); /* Dark mode slider circle */
+}
+
+/* When input is checked */
 input:checked + .slider {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 1); /* Light mode background on check */
 }
 
 input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+html[data-dark="true"] input:checked + .slider {
+    background-color: rgba(255, 255, 255, 1); /* Dark mode background on check */
+}
+
+html[data-dark="true"] input:checked + .slider:before {
     transform: translateX(26px);
 }
-
-
-html[data-theme="dark"] input:checked + .slider {
-    background-color: #ffffff; 
-}
-
-html[data-theme="dark"] input:checked + .slider:before {
-    transform: translateX(26px); 
-}
-
 
 input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
 }
 
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
