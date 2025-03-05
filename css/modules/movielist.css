@@ -16,16 +16,13 @@
     margin-right: 1.5rem; 
 }
 
-.movielist div {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+.movielist__item img {
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-.movielist p {
-    color: var(--primary-grey);
+.movielist h3 {
+    font-family: "Mulish-Bold";
+    font-size: 1rem;
+    margin-block: 0.75rem;
 }
 
-.star__img {
-    width: 1rem;
-}

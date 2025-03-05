@@ -13,6 +13,33 @@ background: none;
 color: var(--primary-grey);
 }
 
+footer {
+    position: fixed;
+    width: 100%;
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-around;
+    padding-block: 1rem;
+}
+
+.rating__details {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-block-end: 1rem;
+}
+
+.rating__details .star__img {
+    width: 0.9rem;
+    height: 0.9rem;
+    box-shadow: none;
+}
+
+.rating__details p {
+font-size: 0.9rem;
+}
 
 
 

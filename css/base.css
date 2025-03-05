@@ -47,13 +47,13 @@ img {
 }
 
 @font-face {
-    font-family: 'Mulish';
-    src: url(/fonts/Mulish-VariableFont_wght.ttf)
+    font-family: 'Mulish-Regular';
+    src: url(/fonts/static/Mulish-Regular.ttf)
 }
 
 @font-face {
     font-family: 'Mulish-Bold';
-    src: url(/fonts/Mulish-Bold.ttf);
+    src: url(/fonts/static/Mulish-Bold.ttf);
     font-weight: bold;
 }
 
