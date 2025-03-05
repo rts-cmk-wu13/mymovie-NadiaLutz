@@ -15,10 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
       </label>
     `;
     
-
     document.body.insertBefore(headerElm, document.body.firstChild);
   
-
     let currentPage = document.location.pathname;
   
     if (currentPage.includes('detail.html')) {

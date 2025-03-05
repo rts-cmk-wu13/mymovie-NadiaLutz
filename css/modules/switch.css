@@ -18,7 +18,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(170, 169, 177, 1); /* Light mode background */
+    background: rgba(170, 169, 177, 1); 
     transition: 0.4s;
 }
 
@@ -29,7 +29,7 @@
     width: 1.3rem;
     left: 3px;
     bottom: 2px;
-    background-color: #ffffff; /* Light mode slider circle */
+    background-color: #ffffff; 
     border-radius: 50%;
     transition: 0.4s;
 }
@@ -42,18 +42,18 @@
     border-radius: 50%;
 }
 
-/* Dark mode background and slider color */
+
 html[data-dark="true"] .switch .slider {
-    background: rgba(255, 255, 255, 1); /* Dark mode background */
+    background: rgba(255, 255, 255, 1); 
 }
 
 html[data-dark="true"] .switch .slider:before {
-    background-color: rgba(0, 0, 0, 1); /* Dark mode slider circle */
+    background-color: rgba(0, 0, 0, 1); 
 }
 
-/* When input is checked */
+
 input:checked + .slider {
-    background-color: rgba(255, 255, 255, 1); /* Light mode background on check */
+    background-color: rgba(255, 255, 255, 1); 
 }
 
 input:checked + .slider:before {
@@ -61,14 +61,11 @@ input:checked + .slider:before {
 }
 
 html[data-dark="true"] input:checked + .slider {
-    background-color: rgba(255, 255, 255, 1); /* Dark mode background on check */
+    background-color: rgba(255, 255, 255, 1); 
 }
 
 html[data-dark="true"] input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(22px);
 }
 
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
 

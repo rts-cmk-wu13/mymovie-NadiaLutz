@@ -1,19 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // let headerDetails = document.createElement("header");
-  // headerDetails.classList.add("header__details");
-  // headerDetails.innerHTML = `
-  //   <button class="return__btn">
-  //     <a href="index.html">
-  //       <img src="img/back.png">
-  //     </a>
-  //   </button>
-  //   <label class="switch">
-  //     <input type="checkbox" name="switch" id="switch">
-  //     <span class="slider round"></span>
-  //   </label>
-  // `;
-
-  // document.body.insertBefore(headerDetails, document.body.firstChild);
 
   let urlParams = new URLSearchParams(window.location.search);
   let movieId = urlParams.get('id'); 
@@ -26,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=${accessToken}`;
     let movieCreditsUrl = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${accessToken}`;
 
-    // Define options here (needed for your fetch calls)
+  
     let options = {
       method: 'GET',
       headers: {
@@ -35,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     };
 
-    // Use Promise.all to fetch both movie details and credits in parallel
+ 
     Promise.all([fetch(movieDetailsUrl, options), fetch(movieCreditsUrl, options)]).then(([movieRes, creditsRes]) => 
       Promise.all([movieRes.json(), creditsRes.json()])
     ).then(([movie, credits]) => {

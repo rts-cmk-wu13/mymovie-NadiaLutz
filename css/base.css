@@ -13,7 +13,7 @@
 
     --primary-grey: rgba(170, 169, 177, 1);
     --primary-blue: rgba(17, 14, 71, 1);
-    --primary-li-bg:rgba(219, 227, 255, 1);
+    --primary-li-bg:rgba(219, 227, 255, 1); 
     --primary-li-text:rgba(136, 164, 232, 1);
 }
 
@@ -65,7 +65,7 @@ img {
 
 h1, h2 {
     font-family: 'Merriweather-Black', sans-serif;
-    color: var(--primary-blue);
+    color: light-dark(var(--primary-blue), var(--primary-li-bg));
     font-size: 1.5rem;
 }
 

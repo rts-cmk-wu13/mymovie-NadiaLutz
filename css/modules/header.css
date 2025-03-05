@@ -4,7 +4,6 @@ header {
     justify-content: right;
     gap: 6rem;
     margin-block: 3rem  2rem;
-    background-color: blue;
 }
 
 header .switch {
@@ -26,5 +25,5 @@ header .switch {
 .return__btn {
     border: none;
     background: none;
-    margin-inline: 5rem auto;
+    margin-inline: 2rem auto;
 }
