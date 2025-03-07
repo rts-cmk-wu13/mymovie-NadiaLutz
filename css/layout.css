@@ -1,7 +1,6 @@
 
 main {
     margin-inline: 2rem;
-    height: 812px;
     overflow: scroll;
 }
 
@@ -21,7 +20,7 @@ footer {
 footer ul {
     display: flex;
     justify-content: space-around;
-    padding-block: 1rem;
+    padding-block-start: 1.5rem;
 }
 
 .rating__details {

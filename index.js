@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     movieListContainer.appendChild(movieList);
   
     let popularListContainer = document.createElement('section');
+    popularListContainer.classList.add("popular__container")
     popularListContainer.innerHTML = `
       <div class="popularlist__top">
         <h2>Popular</h2>
