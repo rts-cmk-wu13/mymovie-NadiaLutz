@@ -77,6 +77,6 @@ margin-block-end: 2rem;
 
 .popular__item-right span p {
 font-family: "Mulish-Regular";
-color: black;
+color: light-dark (black, var(--primary-li-bg));
 font-size: 0.85rem;
 }

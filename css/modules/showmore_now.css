@@ -1,0 +1,18 @@
+
+.movielist__more, .popularlist__more {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 0.5rem;
+    margin-inline: 2rem;
+}
+
+.movielist__item-more, .popularlist__more-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-block-end: 0.5rem;
+}
+
+.movielist__more ul, .popularlist__more ul {
+    list-style: none;
+}
