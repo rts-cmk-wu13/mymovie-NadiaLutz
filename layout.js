@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPage = document.location.pathname;
 
   if (currentPage.includes('index.html')) {
+    document.querySelector('.index__headline').style.display = '';
     document.querySelector('.return__btn').style.display = 'none';
     document.querySelector('.return__btn-more').style.display = 'none';
     document.querySelector('.headline__now').style.display = 'none';
