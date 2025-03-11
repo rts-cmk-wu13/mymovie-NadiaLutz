@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </label>
   `;
 
-  document.body.insertBefore(headerElm, document.body.firstChild);
+document.body.insertBefore(headerElm, document.body.firstChild);
 
   let currentPage = document.location.pathname;
 
@@ -56,4 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     headerElm.querySelector('.headline__now').style.display = 'none';
     headerElm.querySelector('.headline__popular').style.display = 'block';
   }
+
 });
+
+

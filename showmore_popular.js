@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    currentOffset = 2
+  let currentOffset = 2;
+  let accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OTZjNWNkNjcwYWJlZDUzMDVmMDgyOTg2ZTJlMjQ4ZSIsIm5iZiI6MTc0MDk4Njc5MS4xODMsInN1YiI6IjY3YzU1OWE3ODgxYzAxM2VkZTdhNmZiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5GC0q7C8tlc2UOU8SLns_FNXlBD6J1ZwLRs4DDdcFhU';
+  let baseUrl = 'https://image.tmdb.org/t/p/w500';
 
     let fetchPopularlistMore = (page) => {
         let url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=${accessToken}`;
@@ -12,14 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         fetch(url, options)
-          .then((res) => {
-            return res.json();
-          })
-          .then((json) => {
-            if (json.results && json.results.length > 0) {
-              
+        .then(response => response.json())
+        .then(data => {
                 let popularListMore = document.querySelector('.popularlist__more');
-              json.results.forEach((movie) => {
+                data.results.forEach((movie) => {
                 let popularListItem = document.createElement('li');
                 popularListItem.className = 'popularlist__item-more';
                 let posterPath = movie.poster_path;
@@ -37,7 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 popularListMore.appendChild(popularListItem); 
               });
             }
-          })
-      }
+)}
+
+      window.addEventListener('scroll', () => {
+        let scrollHeight = document.documentElement.scrollHeight;
+        let scrollPosition = window.innerHeight + window.scrollY;
+    
+        if (scrollPosition >= scrollHeight - 200) { 
+          currentOffset++;
+          if (currentOffset <= 1000) {
+            fetchPopularlistMore(currentOffset);
+          } else {
+            console.log("No more movies to fetch");
+          }
+        }
+      })
+
       fetchPopularlistMore(currentOffset);
-});
+    })

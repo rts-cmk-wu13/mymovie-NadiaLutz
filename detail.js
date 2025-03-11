@@ -38,9 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
       videoSection.classList.add("video__section");
       videoSection.innerHTML = `
         ${videoUrl ? `<iframe class="video" width="100%" height="350px" src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : ''}
-      `;
+        `;
       document.body.append(videoSection);
-
       let contentRating = getRating(ratingsData);
 
       let detailSection = document.querySelector('.detail__section');
@@ -53,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h1>${movie.title}</h1>
             <img src="img/bookmarksave.png">
           </div>
+          <p>${movie.release_date}</p>
           <div class="rating__details details">
             <img src="img/star.png" class="star__img"> 
             <p>${movie.vote_average}/10 IMDb</p>
@@ -79,7 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
               return `<li class="cast__item">
                         <img src="${baseUrl}${actor.profile_path}" alt="${actor.name}" loading="lazy">
                         <p>${actor.name}</p>
-                      </li>`;
+                      </li>
+                      `;
             }).join('') : ''}
           </ul>
         </section>
@@ -98,3 +99,4 @@ document.addEventListener('DOMContentLoaded', () => {
     return 'Not Rated';
   }
 });
+
