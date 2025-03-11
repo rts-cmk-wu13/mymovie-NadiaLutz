@@ -33,7 +33,7 @@ font-size: 1.5rem;
 .movie__details-top {
     display: flex;  
     justify-content: space-between;
-    margin-block: 1rem 0.5rem;
+    margin-block: 0.5rem;
     align-items: center;
 }
 
@@ -45,7 +45,7 @@ font-size: 1.5rem;
 }
 
 .movie__details p {
-    line-height: 1.75rem;
+    line-height: 1.6rem;
 }
 
 .info__item-container {
@@ -65,7 +65,7 @@ font-size: 1.5rem;
 }
 
 .cast__section-top {
-    margin-block: 0.25rem 0.75rem;
+    margin-block: 1rem 0.75rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,7 +96,7 @@ font-size: 1.5rem;
 
 .cast__item p {
     display: block; 
-    font-size: 0.725rem;
+    font-size: 0.875rem;
     overflow: hidden;
     white-space: normal; 
     word-wrap: break-word; 

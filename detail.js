@@ -47,12 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       detailSection.innerHTML = `
         <div class="movie__details">
-          
           <div class="movie__details-top">
+            <div class="movie__details-top-left">
             <h1>${movie.title}</h1>
+            <p>${getFullYear(movie.release_date)}</p>
+            </div>
             <img src="img/bookmarksave.png">
           </div>
-          <p>${movie.release_date}</p>
           <div class="rating__details details">
             <img src="img/star.png" class="star__img"> 
             <p>${movie.vote_average}/10 IMDb</p>
@@ -72,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <section class="cast__section">
           <div class="cast__section-top">
             <h2>Cast</h2>
-            <button id="seemoreBtn" class="seemore__btn">See more</button>
+            <button id="seemoreBtn" class="seemore__btn"><a>See more</a></button>
           </div>
           <ul class="cast__item-container">
             ${credits.cast && credits.cast.length ? credits.cast.map(actor => {
@@ -88,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
   function getRating(ratingsData) {
 
     let usRating = ratingsData.results.find(rating => rating.iso_3166_1 === 'US');
@@ -98,5 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return 'Not Rated';
   }
-});
 
+ 
+  function getFullYear(releaseDate) {
+
+    let releaseDateObj = new Date(releaseDate);
+    return releaseDateObj.getFullYear(); 
+  }
+});

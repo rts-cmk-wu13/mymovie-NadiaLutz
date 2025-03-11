@@ -25,7 +25,7 @@ document.body.insertBefore(headerElm, document.body.firstChild);
 
   let currentPage = document.location.pathname;
 
-  if (currentPage.includes('index.html')) {
+  if (currentPage.includes('index.html') || currentPage.includes('')) {
     document.querySelector('.index__headline').style.display = '';
     document.querySelector('.return__btn').style.display = 'none';
     document.querySelector('.return__btn-more').style.display = 'none';
