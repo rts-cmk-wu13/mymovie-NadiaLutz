@@ -46,5 +46,10 @@ footer ul {
 font-size: 0.9rem;
 }
 
-
-
+.search {
+    border: 1px solid var(--primary-grey);
+    border-radius: 0.5rem;
+    width: 20rem;
+    padding: 0.25rem 0.5rem;
+    margin: 0rem 5rem 2rem 5rem;
+}
