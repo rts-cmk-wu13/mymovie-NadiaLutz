@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
 
           movieListMore.appendChild(movieListItem);
-        });
+        }); 
         
         let lastMovieItem = document.querySelector(".showmore__now-item:last-child");
         observer.observe(lastMovieItem);
