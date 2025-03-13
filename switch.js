@@ -46,3 +46,5 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log('Switch element not found on this page.');
     }
 });
+
+ 

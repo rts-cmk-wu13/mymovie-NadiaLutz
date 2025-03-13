@@ -1,18 +1,21 @@
 
-.movielist__more, .popularlist__more {
+.showmore__now, .showmore__popular {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 0.5rem;
     margin-inline: 2rem;
+    height: 50rem;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.movielist__item-more, .popularlist__more-item {
+.showmore__now-item, .showmore__popular-item {
     display: flex;
     flex-direction: column;
     margin-block-end: 0.5rem;
 }
 
-.movielist__more ul, .popularlist__more ul {
+.showmore__now ul, .showmore__popular ul {
     list-style: none;
 }
 
@@ -24,13 +27,13 @@
     font-size: 1.5rem;
 }
 
-.movielist__more h3, .popularlist__more h3 {
+.showmore__now h3, .showmore__popular h3 {
     font-family: "Mulish-Bold";
     font-size: 1.025rem;
 } 
 
-.movielist__more img, .popularlist__more img {
+.showmore__now img, .showmore__popular img {
     width: 100%;
     height: 10rem;
-    object-fit: cover;
+    object-fit: cover;    
 }
