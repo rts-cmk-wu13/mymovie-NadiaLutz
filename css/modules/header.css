@@ -27,7 +27,7 @@ header .switch {
 }
 
 .header__details {
-    display: flex;
+    display: flex; 
     justify-content: space-between;
     margin-inline: 2rem 0;
 }
