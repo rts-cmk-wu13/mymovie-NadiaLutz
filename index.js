@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';
                 let genres = movie.genre_ids.map((genreId) => genreMapping[genreId] || 'Unknown Genre');
                 let runtime = movieDetails.runtime
-                  ? `${Math.floor(movieDetails.runtime / 60)}h ${movieDetails.runtime % 60} minutes`
+                  ? `${Math.floor(movieDetails.runtime / 60)}h ${movieDetails.runtime % 60}m`
                   : 'Runtime not available';
 
                 popularItem.innerHTML = `
