@@ -1,0 +1,82 @@
+
+.popularlist {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 16.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.popularlist__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: 1rem;
+}
+
+.popular__item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+}
+
+.popular__item .rating__details {
+    margin-block-end: 0.5rem;
+}
+
+.popular__item-right {
+display: flex;
+flex-direction: column;
+margin-block-end: 2rem;
+}
+
+.rating__info .star__img {
+    width: 0.9rem;
+    height: 0.9rem;
+    box-shadow: none;
+}
+
+.popular__item-right h3 {
+    font-family: "Mulish-Bold";
+    font-size: 1rem;
+    margin-block-end: 0.5rem;
+}
+
+.popular__img {
+    width: 6rem;
+}
+
+.movie__genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.genre__items {
+    font-family: "Mulish-Bold";
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    background: var(--primary-li-bg);
+    color: var(--primary-li-text);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+}
+
+.popular__item-right span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-block-start: 0.5rem;
+}
+
+
+.popular__item-right span p {
+font-family: "Mulish-Regular";
+color: light-dark (black, var(--primary-li-bg));
+font-size: 0.85rem;
+}

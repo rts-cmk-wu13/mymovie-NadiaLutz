@@ -1,0 +1,89 @@
+:root {
+
+    --font-light: #000000;
+    --bg-light: #ffffff;
+    --slider-background-light: #ccc;
+    --slider-circle-light: #fff;
+
+
+    --font-dark: #ffffff;
+    --bg-dark: #000000;
+    --slider-background-dark: #ffffff;
+    --slider-circle-dark: #000000;
+
+    --primary-grey: rgba(170, 169, 177, 1);
+    --primary-blue: rgba(17, 14, 71, 1);
+    --primary-li-bg:rgba(219, 227, 255, 1); 
+    --primary-li-text:rgba(136, 164, 232, 1);
+}
+
+[data-dark="true"] {
+    color-scheme: dark;
+}
+
+[data-dark="false"] {
+    color-scheme: light;
+}
+
+
+html {
+    color: light-dark(var(--font-light), var(--font-dark));
+    background: light-dark(var(--bg-light), var(--bg-dark));
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    font-style: italic;
+    color: grey;
+    border-radius: 0.5rem;
+}
+
+@font-face {
+    font-family: 'Mulish-Regular';
+    src: url(/fonts/static/Mulish-Regular.ttf)
+}
+
+@font-face {
+    font-family: 'Mulish-Bold';
+    src: url(/fonts/static/Mulish-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Merriweather-Black';
+    src: url(/fonts/Merriweather-Black.ttf);
+}
+
+
+h1, h2 {
+    font-family: 'Merriweather-Black', sans-serif;
+    color: light-dark(var(--primary-blue), var(--primary-li-bg));
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-family: "Mulish-Regular";
+    color: var(--primary-grey);
+    letter-spacing: 0.025rem;
+}
+
+span {
+    font-family: 'Mulish-Regular', sans-serif;
+    font-size: 0.75rem;
+}
+
+ul {
+ list-style: none;
+}

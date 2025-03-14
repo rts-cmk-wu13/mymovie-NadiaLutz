@@ -1,0 +1,49 @@
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 3rem;
+    margin-block: 5rem 2rem;
+}
+
+header .switch {
+    z-index: 1;
+}
+
+.index__headline {
+    margin-inline: auto 4rem;
+}
+
+.headline__now, .headline__popular {
+    margin-inline: auto;
+}
+
+.movielist__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__details {
+    display: flex; 
+    justify-content: space-between;
+    margin-inline: 2rem 0;
+}
+
+.return__btn, .return__btn-more {
+    border: none;
+    background: none;
+    z-index: 1;
+    margin-inline: 2rem 0;
+}
+
+.back__img-grey {
+    width: 2rem;
+}
+
+.return__png {
+    width: 3rem;
+    margin-inline: 2rem 15rem;
+}
