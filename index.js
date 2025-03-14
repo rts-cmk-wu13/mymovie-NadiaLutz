@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let movieListItem = document.createElement('li');
             movieListItem.className = 'movielist__item';
             let posterPath = movie.poster_path;
-            let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';
+            let imageUrl = posterPath ? `${baseUrl}${posterPath}` : 'img/placeholder.png';
             movieListItem.innerHTML = `
               <a href="detail.html?id=${movie.id}">
                 <img src="${imageUrl}" alt="${movie.title}" loading="lazy">

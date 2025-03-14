@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <h1 class="index__headline">MyMovies</h1>
     <button class="return__btn">
       <a href="index.html">
-        <img src="img/back.png" alt="Back">
+        <img src="img/back.png" alt="Back" class="return__png">
       </a>
     </button>
     <button class="return__btn-more">

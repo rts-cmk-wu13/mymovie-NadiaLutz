@@ -49,7 +49,7 @@ let searchMovie = () => {
           let popularListItem = document.createElement('li');
           popularListItem.className = 'showmore__popular-item';
           let posterPath = movie.poster_path;
-          let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';
+          let imageUrl = posterPath ? `${baseUrl}${posterPath}` : 'img/placeholder.png';
           popularListItem.innerHTML = `
             <a href="detail.html?id=${movie.id}">
               <img src="${imageUrl}" alt="${movie.title}" loading="lazy">
@@ -68,10 +68,10 @@ let searchMovie = () => {
           observer.observe(lastPopularItem);
         }
       })
-      .catch(error => console.error('Error fetching data:', error));
   };
 
   let searchContainer = document.createElement('div');
+  searchContainer.className = 'search__container';
   searchContainer.innerHTML = `
     <input class="search" id="searchbarPop" type="text" name="name" placeholder="Search">
   `;

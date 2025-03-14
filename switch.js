@@ -42,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 saveToLocalStorage("isDarkMode", switchElm.checked);
             }
         });
-    } else {
-        console.log('Switch element not found on this page.');
     }
 });
 

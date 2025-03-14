@@ -2,15 +2,22 @@
 header {
     position: relative;
     display: flex;
-    justify-content: right;
+    justify-content: space-around;
     align-items: center;
-    gap: 6rem;
+    gap: 3rem;
     margin-block: 5rem 2rem;
 }
 
 header .switch {
-    margin-inline-end: 2rem;
     z-index: 1;
+}
+
+.index__headline {
+    margin-inline: auto 4rem;
+}
+
+.headline__now, .headline__popular {
+    margin-inline: auto;
 }
 
 .movielist__top {
@@ -28,10 +35,15 @@ header .switch {
 .return__btn, .return__btn-more {
     border: none;
     background: none;
-    margin-inline: 2rem auto;
     z-index: 1;
+    margin-inline: 2rem 0;
 }
 
 .back__img-grey {
     width: 2rem;
+}
+
+.return__png {
+    width: 3rem;
+    margin-inline: 2rem 15rem;
 }

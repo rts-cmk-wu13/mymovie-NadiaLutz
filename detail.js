@@ -98,8 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return 'Not Rated';
   }
-
- 
+  
   function getFullYear(releaseDate) {
 
     let releaseDateObj = new Date(releaseDate);

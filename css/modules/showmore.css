@@ -20,7 +20,8 @@
 }
 
 .headline__now {
-    font-size: 1.155rem;
+    text-align: center;
+    font-size: 1.1rem;
 }
 
 .headline__popular {

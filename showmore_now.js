@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
           let movieListItem = document.createElement('li');
           movieListItem.className = 'showmore__now-item';
           let posterPath = movie.poster_path;
-          let imageUrl = posterPath ? `${baseUrl}${posterPath}` : '';
+          let imageUrl = posterPath ? `${baseUrl}${posterPath}` : 'img/placeholder.png';
           movieListItem.innerHTML = `
             <a href="detail.html?id=${movie.id}">
               <img src="${imageUrl}" alt="${movie.title}" onerror="imageError()" loading="lazy">
@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let lastMovieItem = document.querySelector(".showmore__now-item:last-child");
         observer.observe(lastMovieItem);
       })
-      .catch(error => console.error('Error fetching data:', error));
   }
 
   let searchContainer = document.createElement('div');
+  searchContainer.className = 'search__container';
   searchContainer.innerHTML = `
     <input class="search" id="searchbar" type="text" name="name" placeholder="Search">
   `;
