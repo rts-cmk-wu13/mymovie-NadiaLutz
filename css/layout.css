@@ -12,7 +12,7 @@ main {
 .seemore__btn a {
 text-decoration: none;
 border-radius: 1rem;
-border: 1.5px solid var(--primary-grey);
+border: 1px solid var(--primary-grey);
 padding: 0.25rem 0.5rem;
 background: none;
 color: var(--primary-grey);
